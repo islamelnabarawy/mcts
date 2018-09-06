@@ -138,9 +138,7 @@ class UCT(object):
 
         # Back-propagation
         end_values = self.end_values(history_copy)
-        for player, state in visited_states:
-            if (player, state) not in stats:
-                continue
+        for player, state in visited_states.intersection(stats.keys()):
             S = stats[(player, state)]
             S.visits += 1
             S.value += end_values[player]
