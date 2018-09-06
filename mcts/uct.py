@@ -78,7 +78,7 @@ class UCT(object):
 
         # Store and display the stats for each possible action.
         self.data['actions'] = self.calculate_action_values(self.history, player, legal)
-        for m in self.data['actions']:
+        for m in sorted(self.data['actions']):
             print self.action_template.format(**m)
 
         # Return the action with the highest average value.
